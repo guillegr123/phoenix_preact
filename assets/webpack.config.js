@@ -43,6 +43,13 @@ module.exports = (env, options) => {
         }
       ]
     },
+    resolve: {
+      alias: { 
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat'
+      },
+    },
     plugins: [
       new MiniCssExtractPlugin({ filename: '../css/app.css' }),
       new CopyWebpackPlugin([{ from: 'static/', to: '../' }])
