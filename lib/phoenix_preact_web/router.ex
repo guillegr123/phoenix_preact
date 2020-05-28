@@ -13,12 +13,6 @@ defmodule PhoenixPreactWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", PhoenixPreactWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-  end
-
   # Other scopes may use custom stacks.
   # scope "/api", PhoenixPreactWeb do
   #   pipe_through :api
@@ -38,5 +32,12 @@ defmodule PhoenixPreactWeb.Router do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: PhoenixPreactWeb.Telemetry
     end
+  end
+
+  # Front-end default route
+  scope "/", PhoenixPreactWeb do
+    pipe_through :browser
+
+    get "/*path", PageController, :index
   end
 end
