@@ -1,3 +1,9 @@
+// Preact imports
+import { h, render } from 'preact';
+
+// App component import
+import App from './components/App';
+
 // We need to import the CSS so that webpack will load it.
 // The MiniCssExtractPlugin is used to separate it out into
 // its own CSS file.
@@ -13,3 +19,6 @@ import "../css/app.scss"
 //     import socket from "./socket"
 //
 import "phoenix_html"
+
+// Inject our App component into the DOM
+render(<App />, document.body);
